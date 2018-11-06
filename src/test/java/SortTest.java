@@ -31,6 +31,12 @@ public class SortTest {
     }
 
     @Test
+    public void testBubble() {
+        Bubble.sort(a);
+        System.out.println("冒泡排序：" + JSON.toJSONString(a));
+    }
+
+    @Test
     public void testInsertion() {
         Insertion.sort(a);
         System.out.println("插入排序：" + JSON.toJSONString(a));
@@ -43,16 +49,14 @@ public class SortTest {
     }
 
     @Test
-    public void testBubble() {
-        Bubble.sort(a);
-        System.out.println("冒泡排序：" + JSON.toJSONString(a));
-    }
-
-    @Test
     public void testMerge() {
         Merge.sort(a);
         System.out.println("归并排序：" + JSON.toJSONString(a));
     }
 
-
+    @Test
+    public void testQuick() {
+        Quick.sort(a);
+        System.out.println("快速排序：" + JSON.toJSONString(a));
+    }
 }

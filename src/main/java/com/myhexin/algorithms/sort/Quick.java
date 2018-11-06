@@ -14,35 +14,39 @@ public class Quick extends Example {
     }
 
     private static void sort(Comparable[] a, int lo, int hi) {
-        if (hi <= lo) {
+        if (lo >= hi) {
             return;
         }
-        int j = partition(a, lo, hi);//对数组进行切分，并返回基准元素的下标
-        sort(a, lo, j - 1);//对基准元素左侧的数组进行排序
-        sort(a, j + 1, hi);//对基准元素右侧的数组进行排序
+        int j = partition(a, lo, hi);
+        sort(a, lo, j);
+        sort(a, j + 1, hi);
     }
 
     private static int partition(Comparable[] a, int lo, int hi) {
-        int i = lo, j = hi + 1;//定义了左游标i，右游标j
-        Comparable v = a[lo];//选择数组第一个元素作为了基准元素
+
+        int l = lo, r = hi + 1;
+
+        Comparable pivot = a[lo];
+
         while (true) {
-            while (less(a[++i], v)) {//当左游标的元素小于基准元素的时候就一直++
-                if (i == hi) {//左游标到头的时候跳出循环
+            while (less(a[++l], pivot)) {
+                if (l == hi) {
                     break;
                 }
             }
-            while (less(v, a[--j])) {//当基准元素小于右游标的元素的时候就一直--
-                if (j == lo) {//右游标到头的时候跳出循环
+            while (less(pivot, a[--r])) {
+                if (r == lo) {
                     break;
                 }
             }
-            if (i >= j) {
-                break;//左右游标相遇则跳出循环
+            if (l >= r) {
+                break;
             }
-            exch(a, i, j);//交换i和j元素位置
+            exch(a, l, r);
         }
-        exch(a, lo, j);//调整基准元素到正确的位置
-        return j;//返回基准元素的坐标
+
+        exch(a, lo, r);
+        return r;
     }
 
 }
