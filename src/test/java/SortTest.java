@@ -1,8 +1,5 @@
 import com.alibaba.fastjson.JSON;
-import com.myhexin.algorithms.sort.Bubble;
-import com.myhexin.algorithms.sort.Insertion;
-import com.myhexin.algorithms.sort.Merge;
-import com.myhexin.algorithms.sort.Selection;
+import com.myhexin.algorithms.sort.*;
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
 
@@ -37,6 +34,12 @@ public class SortTest {
     public void testInsertion() {
         Insertion.sort(a);
         System.out.println("插入排序：" + JSON.toJSONString(a));
+    }
+
+    @Test
+    public void testShell() {
+        Shell.sort(a);
+        System.out.println("希尔排序：" + JSON.toJSONString(a));
     }
 
     @Test
