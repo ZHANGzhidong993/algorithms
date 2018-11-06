@@ -19,6 +19,7 @@ public class SortTest {
         for (int i = 0; i < 10; i++) {
             a[i] = random.nextInt(100);
         }
+
         System.out.println("数组初始化成功：" + JSON.toJSONString(a));
     }
 
@@ -39,4 +40,5 @@ public class SortTest {
         Merge.sort(a);
         System.out.println("归并排序：" + JSON.toJSONString(a));
     }
+
 }

@@ -29,28 +29,25 @@ public class Merge extends Example {
     }
 
     private static void merge(Comparable[] a, int lo, int mid, int hi) {
-        /** 记录左数组的起始下标i和右数组的起始下标j */
-        int i = lo, j = mid + 1;
-        for (int k = lo; k <= hi; k++) {
-            /** 将数组复制到辅助数组 */
-            aux[k] = a[k];
+
+        int l = lo, r = mid + 1;
+
+        for (int i = lo; i <= hi; i++) {
+            aux[i] = a[i];
         }
-        //下面的for循环表示了合并两个数组时候的四种情况
-        //i、j分别表示了左、右数组的当前元素
-        for (int k = lo; k <= hi; k++) {
-            //如果左半边用尽，取右半边起始元素
-            if (i > mid) {
-                a[k] = aux[j++];
-                //如果右半边用尽，则取左边元素
-            } else if (j > hi) {
-                a[k] = aux[i++];
-                //如果右边元素比左边小，则取右边元素
-            } else if (less(aux[j], aux[i])) {
-                a[k] = aux[j++];
-                //如果左边元素比右边小，则取左边元素
+
+        for (int i = lo; i <= hi; i++) {
+
+            if (l > mid) {
+                a[i] = aux[r++];
+            } else if (r > hi) {
+                a[i] = aux[l++];
+            } else if (less(aux[r], aux[l])) {
+                a[i] = aux[r++];
             } else {
-                a[k] = aux[i++];
+                a[i] = aux[l++];
             }
+
         }
     }
 
