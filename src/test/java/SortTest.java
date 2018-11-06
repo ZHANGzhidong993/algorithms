@@ -1,12 +1,16 @@
 import com.alibaba.fastjson.JSON;
+import com.myhexin.algorithms.sort.Bubble;
 import com.myhexin.algorithms.sort.Insertion;
 import com.myhexin.algorithms.sort.Merge;
 import com.myhexin.algorithms.sort.Selection;
+import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
 
 import java.util.Random;
 
 /**
+ * 测试排序
+ *
  * @author zhangzhidong
  * @create: 2018-08-07 23:32
  */
@@ -19,7 +23,7 @@ public class SortTest {
         for (int i = 0; i < 10; i++) {
             a[i] = random.nextInt(100);
         }
-
+        ArrayUtils.shuffle(a);
         System.out.println("数组初始化成功：" + JSON.toJSONString(a));
     }
 
@@ -36,9 +40,16 @@ public class SortTest {
     }
 
     @Test
+    public void testBubble() {
+        Bubble.sort(a);
+        System.out.println("冒泡排序：" + JSON.toJSONString(a));
+    }
+
+    @Test
     public void testMerge() {
         Merge.sort(a);
         System.out.println("归并排序：" + JSON.toJSONString(a));
     }
+
 
 }

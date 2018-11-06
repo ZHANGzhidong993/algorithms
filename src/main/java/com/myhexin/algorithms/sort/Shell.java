@@ -32,12 +32,6 @@ public class Shell extends Example {
             }
             h = h / 3;
         }
-        System.out.println("比较了" + total + "次");
     }
 
-    public static void main(String[] args) {
-        String[] a = new String[]{"1", "5", "6", "3", "9", "7", "2", "4", "8"};
-        Shell.sort(a);
-        show(a);
-    }
 }

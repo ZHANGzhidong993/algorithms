@@ -4,12 +4,9 @@ package com.myhexin.algorithms.sort;
  * @author zhangzhidong
  * @create: 2018-08-07 23:29
  */
-public abstract class Example {
-
-    protected static int total = 0;
+public class Example {
 
     public static boolean less(Comparable v, Comparable w) {
-        total++;
         return v.compareTo(w) < 0;
     }
 

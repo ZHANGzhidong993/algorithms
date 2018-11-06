@@ -1,16 +1,15 @@
 package com.myhexin.algorithms.sort;
 
 
-import org.apache.commons.lang3.ArrayUtils;
-
 /**
+ * 快速排序
+ *
  * @author zhangzhidong
  * @create: 2018-08-26 20:49
  */
 public class Quick extends Example {
 
     public static void sort(Comparable[] a) {
-        ArrayUtils.shuffle(a);
         sort(a, 0, a.length - 1);
     }
 
@@ -46,10 +45,4 @@ public class Quick extends Example {
         return j;//返回基准元素的坐标
     }
 
-    public static void main(String[] args) {
-        String[] a = "QUICKSORTEXAMPLE".split("");
-        Quick.sort(a);
-        show(a);
-        System.out.println(total);
-    }
 }
